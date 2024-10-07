@@ -1,0 +1,392 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #282c34;
+    color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #3b3f47;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 350px;
+    max-width: 90%;
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 25px;
+    color: #61dafb;
+}
+
+input[type="text"] {
+    width: calc(100% - 40px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #444;
+    color: #f5f5f5;
+    font-size: 16px;
+}
+
+button {
+    font-size: 18px;
+    padding: 12px 25px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    border: none;
+    background-color: #61dafb;
+    color: #282c34;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+button:disabled {
+    background-color: #50575e;
+    cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+    background-color: #21a1f1;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 25px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+ul li {
+    padding: 12px;
+    border: 1px solid #444;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    background-color: #393e46;
+    color: #f5f5f5;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center; /* יישור התמונה והטקסט */
+}
+
+ul li:hover {
+    background-color: #4d525a;
+}
+
+ul li img {
+    width: 40px; /* גודל התמונה */
+    height: 40px; /* גובה התמונה */
+    margin-left: 10px; /* ריווח בין התמונה לטקסט */
+    border-radius: 5px; /* פינות עגולות לתמונה */
+}
+
+.progress-container {
+    width: 100%;
+    background-color: #50575e;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 12px;
+    margin-top: 20px;
+}
+
+.progress-bar {
+    width: 0;
+    height: 100%;
+    background-color: #61dafb;
+    border-radius: 8px;
+    transition: width 0.5s ease;
+}
+
+.search-indicator {
+    display: none;
+    margin-top: 10px;
+    font-size: 16px;
+    color: #61dafb;
+}
+
+
+
+header {
+background-color: #333;
+color: white;
+padding: 10px 0;
+text-align: center;
+}
+
+nav ul {
+list-style-type: none;
+padding: 0;
+}
+
+nav ul li {
+display: inline;
+margin: 0 15px;
+}
+
+nav ul li a {
+color: white;
+text-decoration: none;
+font-size: 18px;
+}
+
+main {
+margin: 50px auto;
+text-align: center;
+padding: 20px;
+}
+
+form {
+margin: 20px auto;
+width: 300px;
+}
+
+form input {
+width: 100%;
+padding: 10px;
+margin: 10px 0;
+}
+
+button {
+background-color: #333;
+color: white;
+padding: 10px;
+border: none;
+cursor: pointer;
+}
+
+button:hover {
+background-color: #555;
+}
+
+#user-info {
+font-size: 18px;
+color: #f4f4f4;
+background-color: #444;
+padding: 10px 20px;
+border-radius: 25px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+display: inline-block;
+transition: background-color 0.3s ease, transform 0.3s ease;
+cursor: default;
+}
+
+#user-info:hover {
+background-color: #555;
+transform: scale(1.05);
+}
+
+#user-info span {
+display: block;
+font-weight: bold;
+letter-spacing: 0.5px;
+}
+
+#user-info span::before {
+/* content: "👤 "; אייקון משתמש */
+font-size: 1.2em;
+}
+
+
+/* עיצוב לכפתורים */
+#button1, #button2, #button3 {
+position: absolute;
+top: 10px; /* שולט במרחק מהחלק העליון של המסך */
+margin-right: 20px;
+padding: 10px 20px;
+background-color: #007BFF; /* צבע רקע לכפתור */
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+}
+
+/* סידור אופקי של הכפתורים */
+#button1 {
+left: 20px; /* מרחק מהצד השמאלי */
+}
+
+#button2 {
+left: 120px; /* מרחק מהצד השמאלי לכפתור השני */
+}
+
+#button3 {
+left: 220px; /* מרחק מהצד השמאלי לכפתור השלישי */
+}
+
+/* עיצוב כפתורים כאשר עוברים מעליהם */
+#button1:hover, #button2:hover, #button3:hover {
+background-color: #0056b3;
+}
+
+#history-container {
+    width: 100%;
+    max-height: 300px;
+    border: 1px solid #444;
+    padding: 10px;
+    overflow-y: auto;
+    background-color: #2c2c2c;
+    color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+    color: #ffffff;
+}
+
+th, td {
+    border: 1px solid #555;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #444;
+}
+
+button {
+    /* background-color: #ff4444; */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.delete-btn {
+cursor: pointer;
+color: red;
+font-size: 18px;
+font-weight: bold;
+padding: 5px;
+}
+
+.delete-btn:hover {
+color: darkred;
+}
+
+.search-repeat-btn {
+cursor: pointer;
+color: #4CAF50;
+font-size: 1.5em;
+transition: transform 0.2s;
+}
+
+.search-repeat-btn:hover {
+transform: rotate(360deg);
+color: #45a049;
+}
+.dropdown {
+position: relative;
+display: inline-block;
+}
+
+.side-menu {
+    height: 40%; /* גובה 40% של המסך */
+    width: 0; /* התפריט מתחיל סגור */
+    position: fixed; /* קבוע בצד ימין של הדף */
+    z-index: 1; /* מעל התוכן */
+    top: 0;
+    right: 0;
+    background-color: #585555; /* צבע רקע */
+    /* overflow: hidden; מניעת גלילה כללית */
+    transition: 0.5s; /* אנימציה לפתיחת התפריט */
+    padding-top: 60px; /* רווח מעל התוכן בתפריט */
+}
+
+/* גלילה פנימית רק עבור history-container */
+#history-container {
+    max-height: 200px; /* גובה מקסימלי שיגרום לגלילה אם התוכן יחרוג */
+    overflow-y: auto; /* גלילה אנכית */
+    margin-top: 20px; /* מרווח מלמעלה */
+    padding: 10px;
+    background-color: #333131; /* צבע רקע */
+    border: 1px solid #ddd; /* מסגרת עדינה */
+    border-radius: 5px; /* פינות מעוגלות */
+}
+
+.side-menu a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+}
+
+.side-menu a:hover {
+    background-color: #4a4949;
+}
+
+.side-menu .closebtn {
+    position: absolute;
+    top: 0;
+    left: 25px;
+    font-size: 36px;
+    margin-right: 10px;
+}
+
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #585555;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 2;
+}
+
+.logout {
+    position: absolute;
+    top: 20px; /* מרחק מהחלק העליון של העמוד */
+    left: 20px; /* מרחק מצד שמאל */
+    background-color: #333;
+    color: white;
+    border: none; /* בלי גבולות לכפתור */
+    padding: 10px 20px; /* ריווח פנימי */
+    border-radius: 5px; /* פינות מעוגלות */
+    font-size: 16px; /* גודל הפונט */
+    cursor: pointer; /* מראה של יד בעת ריחוף */
+    transition: background-color 0.3s ease; /* אפקט מעבר */
+}
+
+.logout:hover {
+    background-color: #d32f2f; /* צבע כהה יותר בריחוף */
+}
+
+/* הסתרת ה-li כדי לשמור על מבנה תקני */
+#logout-button {
+    list-style-type: none; /* הסתרת הנקודה של רשימה */
+    display: inline; /* יישור עם התוכן */
+}
+
+.logout a {
+    text-decoration: none; /* הסרת קו תחתון */
+    color: white; /* צבע קישור */
+}
+
+/* לוודא שהכפתור מוצג במרכז במובייל */
+@media screen and (max-width: 768px) {
+    .logout {
+        left: 50%; /* ממרכז את הכפתור */
+        transform: translateX(-50%); /* התאמה למרכז */
+    }
+}
+
+#folderNameContainer, #finishButton {
+            display: none; /* בהתחלה מוסתרים */
+        }
