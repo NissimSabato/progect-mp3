@@ -231,11 +231,16 @@ def save_search_history(UserID, SearchTerm,datetime):
         print(f"Error saving search history: {str(e)}")
 
 # פונקציה להורדת וידאו מ-YouTube כקובץ MP3 ושמירת ההיסטוריה במסד
+from unidecode import unidecode
+
 def download_youtube_video_as_mp3(url, title, output_path, user_id=None):
     try:
+        # המרת השם לתווים אנגליים בלבד
+        title_in_english = unidecode(title).replace('`', '').replace('|', '')  # הסרת תווים בעייתיים
+
         ydl_opts = {
             'format': 'bestaudio/best',
-            'outtmpl': os.path.join(output_path, f"{title}.mp4"),
+            'outtmpl': os.path.join(output_path, f"{title_in_english}.mp4"),
             'quiet': True,
         }
 
@@ -249,14 +254,14 @@ def download_youtube_video_as_mp3(url, title, output_path, user_id=None):
         print(f"Saved video file: {video_file}")
 
         try:
-            audio_output_path = os.path.join(output_path, f"{title}.mp3")
+            audio_output_path = os.path.join(output_path, f"{title_in_english}.mp3")
             with AudioFileClip(video_file) as audio_clip:
                 audio_clip.write_audiofile(audio_output_path)
             os.remove(video_file)
             print(f"Converted video to MP3 and removed original file: {video_file}")
 
             # שמירת היסטוריית ההורדה
-            with app.app_context():  # הוספת הקשר אפליקציה
+            with app.app_context():
                 song = Song.query.filter_by(SongName=title).first()
                 if not song:
                     song = Song(SongName=title)
@@ -264,10 +269,10 @@ def download_youtube_video_as_mp3(url, title, output_path, user_id=None):
                     db.session.commit()
 
                 if user_id:
-                    download_entry = DownloadHistory(UserID=user_id, SongID=song.SongID,FilePath=audio_output_path)
+                    download_entry = DownloadHistory(UserID=user_id, SongID=song.SongID, FilePath=audio_output_path)
                     db.session.add(download_entry)
 
-                db.session.commit()  # שמירת השינויים
+                db.session.commit()
 
         except Exception as e:
             return f"שגיאה בהמרה: {str(e)}"
@@ -332,7 +337,7 @@ def download():
     url = request.args.get('url')
     title = request.args.get('title')
     
-    output_path = r"C:\Users\user\OneDrive\שולחן העבודה\שירים גיבוי\הורדות שלי\downloads"  # עדכון הנתיב לנתיב שלך
+    output_path = r"C:\Users\user\OneDrive\downloads"  # עדכון הנתיב לנתיב שלך
     os.makedirs(output_path, exist_ok=True)
 
     # הפעלת הורדה בתהליכון נפרד (Thread)
