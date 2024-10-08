@@ -59,6 +59,8 @@ function login() {
 
             updateButtons();
             displayUserInfo(); // הצגת שם המשתמש והסטטוס
+            window.location.reload();
+
         } else {
             document.getElementById('message').textContent = 'התחברות נכשלה';
         }
